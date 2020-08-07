@@ -1,0 +1,45 @@
+Difference between Window, document and screen in javascript
+
+Window:
+
+The JavaScript window object sits at the top of the JavaScript Object hierarchy and represents 
+the browser window.The window is the first thing that gets loaded into the browser .
+
+Document and Screen are the properties of Window.
+
+This window object has the majority of the properties like length, innerWidth, innerHeight and more. 
+The window object represents the current browsing context . It holds things like window.location, 
+window.history, window.screen, window.status, or the window.document .
+
+The window interface represents a window containing a DOM document. The document property points to the 
+DOM document located in that window. A window for a given document can be obtained using document.defaultView property.
+
+
+Document:
+
+Document is a part of the window. The document interface represents any webpage loaded in the browser 
+and 
+serves as an entry point into the webpages content, which is DOM tree.
+
+When an HTML document is loaded into a web browser , it becomes a document object. 
+It is the root node of the HTML document. 
+The document actually gets loaded inside the window object and has properties available to it 
+like title, URL, cookie, etc.
+
+The DOM tree includes elements such as <body> and <table> among many others. 
+Depends on the document’s type (eg: HTML, XML…) a larger API is available.
+
+HTML documents, served with the “text/html” content type, also implement the HTMLDocument interface, 
+whereas XML and SVG documents implement the XMLDocument interface.
+
+
+Screen:
+
+Screen object contains information about window or the browser window. 
+The screen interface represents a screen usually the one which the current window is being rendered 
+and is obtained using window.screen.
+
+Screen is a small information object about physical screen dimensions . 
+It can be used to display screen width, height, colorDepth, pixelDepth etc. 
+It is not mandatory to write window prefix with screen object. 
+It can be written without window prefix.
