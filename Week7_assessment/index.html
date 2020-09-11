@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resume Using Just DOM</title>
+	<style type="text/css">
+
+		body{
+			margin:0;
+		}
+		
+		#fixwidth{
+			width: 1200px;
+			height: 200px;
+			/*border:1px solid red;*/
+			margin: 0 auto;
+		}
+
+		.greydiv{
+			background-color: #565656;
+			/*width: 1000px;*/
+			height: 200px;
+		}
+		.bluediv{
+			background-color: blue;
+			/*width: 1000px;*/
+			height: 200px;
+		}
+
+		.imageposition{
+			position: relative;
+			left: 530px;
+			top: -200px;
+			z-index: 3;
+		}
+
+		.profilepic{
+			border-width: 50px;
+			border-radius: 250px;
+			/*width:100px;height:100px;*/
+		}
+
+		.lightgrey{
+			background-color: #F7F7F7;
+			height:50px;
+			position: relative;
+			/*left: 550px;*/
+			top: -200px;
+			z-index: 1;
+		}
+
+		.smallgreydiv{
+			background-color: #565656;
+			/*width: 1000px;*/
+			height: 30px;
+			position: relative;
+			top: -200px;
+		}
+
+		.nameDiv{
+			background-color: #FABE28;
+			width: 300px;
+			height: 50px;
+			border-radius: 15px;
+			margin:-130px 0 0px 500px;
+			color: black;
+			font-size: 1.2em;
+			text-align: center;
+			padding-top: 30px;
+			position: relative;
+			top: -170px;
+			z-index: 4
+		}
+
+		.address{
+			/*border : 1px solid red;*/
+			font-family: "Times New Roman", Times, serif;
+			font-size: 1.3em;
+			padding: 0 0 0 350px;
+			position: relative;
+			top: -140px;
+		}
+
+		#hrAdd{
+			position: relative;
+			top: -130px;
+		}
+
+		.resumeDetails{
+
+		}
+
+		.leftPane{
+			border-right:1px solid black;
+			width:600px;
+
+		}
+
+		.headingContent{
+			font-size: 1.2em;
+		}
+
+		.headings{
+			font-weight: bold;
+			font-size: 1.2em;
+			display: inline;
+		}
+
+
+
+	</style>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		
+		//let bodyElem = document.createElement('body');
+		//bodyElem.setAttribute('backgroundColor','blue');
+		//document.body.style.backgroundColor='red';
+
+		//this is main div , which holds all other divs
+		let containerDiv = document.createElement('div');
+		containerDiv.setAttribute('id','container');
+		//containerDiv.innerHTML="Hello Hello DOm testing.....";
+
+		//div to center content
+		let fixWidthDiv = document.createElement('div');
+		fixWidthDiv.setAttribute("id","fixwidth");
+		//fixWidthDiv.innerHTML="hello";	
+
+		containerDiv.append(fixWidthDiv);	
+
+		//to set profile image
+
+		let greyDiv = createDiv();
+		greyDiv.setAttribute('class','greydiv');
+
+		let imageposition = createDiv();
+		imageposition.setAttribute('class','imageposition');
+
+		let imageProfile = document.createElement('img');
+		//console.log(imageProfile);
+		imageProfile.setAttribute('src','images/human.jpg');
+		imageProfile.setAttribute('class','profilepic');
+		imageProfile.setAttribute('alt','DP');
+		// imageProfile.setAttribute('width','150px');
+		// imageProfile.setAttribute('height','150px');
+		//console.log(imageProfile);
+		
+		 imageposition.appendChild(imageProfile);
+
+		 let lightgrey = createDiv();
+		 lightgrey.setAttribute('class','lightgrey');
+
+		 let smallgreydiv = createDiv();
+		 smallgreydiv.setAttribute('class','smallgreydiv');
+
+		 let nameDiv = createDiv();
+		 nameDiv.setAttribute('class','nameDiv');
+		 nameDiv.innerHTML="RamaKrishna Ch";
+
+		 let address = createDiv();
+		 address.setAttribute('class','address');
+		 address.innerHTML="Hyderabad,Telangana 99999 | 999-999-9999 | ramakrishnach14@gmail.com";
+
+		 let hr = document.createElement('hr');
+		 hr.setAttribute('id','hrAdd');
+
+
+		 let resdet = createDiv();
+		 resdet.setAttribute('class','resumeDetails');
+
+		 let leftPane = createDiv();
+		 leftPane.setAttribute('class','leftPane');
+
+		 let headingContent = createDiv();
+		 headingContent.setAttribute('class','headingContent');
+
+		 let profileIcon = document.createElement('img');
+		 profileIcon.setAttribute('src','images/profile.png');
+		 profileIcon.setAttribute('width','20px');
+		 profileIcon.setAttribute('height','20px');
+
+		 let p = document.createElement('p');
+		 p.setAttribute('class','headings')
+		 p.innerHTML="&nbsp&nbsp&nbspProfile";
+
+		 let pc = document.createElement('p');
+		 pc.setAttribute('class','headingContent');
+		 pc.innerHTML="Innovative optimized solution seeker.Excited to be at the deployment phase of my new career as a full stack developer.I am ambitious , adventurous.";
+
+		 let skillsIcon = document.createElement('img');
+		 skillsIcon.setAttribute('src','images/profile.png');
+		 skillsIcon.setAttribute('width','20px');
+		 skillsIcon.setAttribute('height','20px');
+
+		 let pskills = document.createElement('p');
+		 pskills.setAttribute('class','headings')
+		 pskills.innerHTML="&nbsp&nbsp&nbsp Skills";
+
+		 let pcSkills = document.createElement('p');
+		 pcSkills.setAttribute('class','headingContent');
+		 pcSkills.innerHTML="Innovative optimized solution seeker.Excited to be at the deployment phase of my new career as a full stack developer.I am ambitious , adventurous.";
+
+
+
+
+		 headingContent.appendChild(profileIcon);
+		 headingContent.appendChild(p);
+		 headingContent.appendChild(pc);
+		 headingContent.appendChild(skillsIcon);
+		 headingContent.appendChild(pskills);
+		 headingContent.appendChild(pcSkills);
+
+
+
+
+
+		 leftPane.appendChild(headingContent);
+
+		 resdet.appendChild(leftPane);
+
+
+
+
+
+
+		 fixWidthDiv.appendChild(greyDiv);
+		 fixWidthDiv.appendChild(imageposition);
+		 fixWidthDiv.appendChild(lightgrey);
+		 fixWidthDiv.appendChild(smallgreydiv);
+		 fixWidthDiv.appendChild(nameDiv);
+		 fixWidthDiv.appendChild(address);
+		 fixWidthDiv.appendChild(hr);
+		 fixWidthDiv.appendChild(resdet);
+
+		 
+
+
+
+
+
+		//console.log(greyDiv);
+
+		document.body.append(containerDiv);	
+
+		function createDiv(){
+			let div = document.createElement('div');
+			return div;
+		}	
+
+
+
+	</script>
+
+
+
+
+
+</body>
+</html>
