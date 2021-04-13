@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+
+
+	<title>Calculator Using DOM</title>
+
+
+	<style type="text/css">
+		.borderCol{
+			border:1px solid black;
+
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		var container = createDiv("container");
+		
+		var row1 = createDiv("row");
+		
+		var coltb = createDiv("col-9");
+
+		var inpDiv = createDiv("input-group mb-3 mt-3");
+		var tb = 	document.createElement('input');
+		//console.log(tb);
+		tb.setAttribute('class','form-control');
+		tb.setAttribute('placeholder','Enter your math expression here');
+		tb.setAttribute('id','inp');
+
+		var row2 = createDiv("row");
+		var colOne = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colTwo = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colThree = createDiv("col-3 bg-light text-dark borderCol text-center");
+
+		var row3 = createDiv("row");
+		var colFour = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colFive = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colSix = createDiv("col-3 bg-light text-dark borderCol text-center");
+
+		var row4 = createDiv("row");
+		var colSeven = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colEight = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colNine = createDiv("col-3 bg-light text-dark borderCol text-center");
+
+		var row5 = createDiv("row");
+		var colZero = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colPlus = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colMinus = createDiv("col-3 bg-light text-dark borderCol text-center");
+
+		var row6 = createDiv("row");
+		var colDiv = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colMul = createDiv("col-3 bg-light text-dark borderCol text-center");
+		var	colMod = createDiv("col-3 bg-light text-dark borderCol text-center");
+
+		var row7 = createDiv("row");
+		var colEqual = createDiv("col-6 bg-light text-dark borderCol text-center");
+		var colClr = createDiv("col-3 bg-light text-dark borderCol text-center");
+		
+		// var btn1 = document.createElement("input");
+		// btn1.setAttribute("type","button");
+		// btn1.setAttribute("class","btn btn-light")
+		// btn1.setAttribute("value","1")
+
+		var btn1 = createButton(1); var btn2 = createButton(2); var btn3 = createButton(3);
+		var btn4 = createButton(4); var btn5 = createButton(5); var btn6 = createButton(6);
+		var btn7 = createButton(7); var btn8 = createButton(8); var btn9 = createButton(9);
+		var btn0 = createButton(0); var btnPlus = createButton("+"); var btnMin = createButton("-");
+		var btnDiv = createButton("/"); var btnMul = createButton("*"); var btnMod = createButton("%");
+		var btnEqual = createButton("="); var btnClr = createButton("clr");
+		
+
+
+		container.appendChild(row1);
+		row1.appendChild(coltb);
+		coltb.appendChild(inpDiv);
+		inpDiv.appendChild(tb);
+
+		container.appendChild(row2);
+		row2.appendChild(colOne);
+		row2.appendChild(colTwo);
+		row2.appendChild(colThree);
+		colOne.appendChild(btn1);
+		colTwo.appendChild(btn2);
+		colThree.appendChild(btn3);
+
+		container.appendChild(row3);
+		row3.appendChild(colFour);
+		row3.appendChild(colFive);
+		row3.appendChild(colSix);
+		colFour.appendChild(btn4);
+		colFive.appendChild(btn5);
+		colSix.appendChild(btn6);
+
+		container.appendChild(row4);
+		row4.appendChild(colSeven);
+		row4.appendChild(colEight);
+		row4.appendChild(colNine);
+		colSeven.appendChild(btn7);
+		colEight.appendChild(btn8);
+		colNine.appendChild(btn9);
+
+		container.appendChild(row5);
+		row5.appendChild(colZero);
+		row5.appendChild(colPlus);
+		row5.appendChild(colMinus);
+		colZero.appendChild(btn0);
+		colPlus.appendChild(btnPlus);
+		colMinus.appendChild(btnMin);
+
+		container.appendChild(row6);
+		row6.appendChild(colDiv);
+		row6.appendChild(colMul);
+		row6.appendChild(colMod);
+		colDiv.appendChild(btnDiv);
+		colMul.appendChild(btnMul);
+		colMod.appendChild(btnMod);
+
+		container.appendChild(row7);
+		row7.appendChild(colEqual);
+		colEqual.appendChild(btnEqual);
+		row7.appendChild(colClr);
+		colClr.appendChild(btnClr);
+
+
+		document.body.append(container);
+
+
+
+		function createDiv(argClass){
+			var eDiv = document.createElement('div');
+			eDiv.setAttribute('class',argClass);
+			return eDiv;
+		}
+
+		function createButton(value){
+			var btn = document.createElement("input");
+			btn.setAttribute("type","button");
+			btn.setAttribute("class","btn btn-light btn btn-lg");
+			btn.style.width="100%";
+			btn.setAttribute("value",value);
+			btn.setAttribute("id",value);
+			btn.setAttribute("onclick","fun(this.value)");
+			return btn;
+		}
+
+		var globalExpression='';
+
+		function fun(value){
+			//alert(value);
+			//console.log(value);
+			var expr = document.querySelector('#inp');
+			//console.log(typeof(expr));
+			if(value==='='){
+				var result = eval(globalExpression);
+				expr.value = globalExpression + " = "+ result;
+			}else if(value==='clr'){
+				globalExpression='';
+				expr.value = globalExpression;
+
+			}else  {
+				globalExpression = globalExpression + value;
+				expr.value = globalExpression;
+			}
+		}
+
+
+		
+
+
+	</script>
+
+	
+
+
+</body>
+</html>
